@@ -1,0 +1,34 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+    ext.sdk_compile = 31
+    ext.sdk_min = 23
+    ext.sdk_target = 30
+    ext.build_tools = '30.0.3'
+    ext.version_code_dev = 80
+    ext.version_name_dev = '1.4.10'
+    ext.version_code_pro = 35
+    ext.version_name_pro = '1.4.8'
+
+    addRepos(repositories)
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.sdk_compile
+    buildToolsVersion rootProject.ext.build_tools
+
+    defaultConfig {
+        applicationId "com.example.collaberadigital"
+        minSdkVersion rootProject.ext.sdk_min
+        targetSdkVersion rootProject.ext.sdk_target
+        testInstrumentationRunner
+
+        buildTypes.each {
+            it.buildConfigField 'String', 'APIKEY', APIKey
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.0.5"
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs = ["-Xallow-result-return-type"]
+    }
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":core")
+    implementation project(":domain")
+    implementation commonDependencies.kotlin
+    implementation commonDependencies.ktx
+    implementation commonDependencies.appcompat
+    implementation commonDependencies.material
+    implementation commonDependencies.liveData
+    implementation commonDependencies.viewModel
+    implementation commonDependencies.retrofit
+    implementation commonDependencies.gsonConverter
+    implementation commonDependencies.interceptor
+    implementation commonDependencies.koin
+    implementation commonDependencies.koinViewmodel
+    implementation commonDependencies.koinExt
+    implementation commonDependencies.composeUi
+    implementation commonDependencies.composeActivity
+    implementation commonDependencies.composeMaterial
+    implementation commonDependencies.composeLifecycle
+    implementation commonDependencies.composeUiTooling
+    implementation commonDependencies.composeStateExtension
+    implementation commonDependencies.composeJunit4
+    implementation commonDependencies.composeCoil
+    implementation commonDependencies.composeMaps
+    implementation commonDependencies.composeIconMaterial
+    implementation commonDependencies.playServices
+    implementation commonDependencies.locationPlayService
+}

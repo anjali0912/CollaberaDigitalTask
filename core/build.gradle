@@ -1,0 +1,41 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion rootProject.ext.sdk_compile
+    buildToolsVersion rootProject.ext.build_tools
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.sdk_min
+        targetSdkVersion rootProject.ext.sdk_target
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation commonDependencies.kotlin
+    implementation commonDependencies.ktx
+    implementation commonDependencies.appcompat
+    implementation commonDependencies.material
+    implementation commonDependencies.constraintLayout
+    implementation commonDependencies.liveData
+    implementation commonDependencies.viewModel
+    implementation commonDependencies.retrofit
+    implementation commonDependencies.gsonConverter
+    implementation commonDependencies.interceptor
+    implementation commonDependencies.koin
+    implementation commonDependencies.koinScope
+    implementation commonDependencies.koinViewmodel
+    implementation commonDependencies.koinExt
+}
