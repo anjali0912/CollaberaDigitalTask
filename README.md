@@ -14,3 +14,6 @@ Every time the api is called, the location data is stored in the local database 
 * OpenWeatherApi: Key is added is gradle.properties with the name APIKey
 * GoogleMap: Key is added is string.xml(app module) with the name google_maps_key
 * CurrentWeatherIcon: Icon displayed in the first tab, is coming from openWeatherApi
+
+
+![task](https://github.com/anjali0912/CollaberaDigitalTask/assets/18376847/c04ddb15-b603-4359-91d8-9acd1416cb29)
